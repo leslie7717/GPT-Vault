@@ -300,9 +300,11 @@ function Answer({ answer, setAnswers }) {
         {isDisputed ? <span className="disputed">[⛔️DISPUTED]</span> : null}
         <div className="answer-text">
           {isReadMore ? answer.text.slice(0, 167) : answer.text}
-          <span onClick={toggleReadMore} className="read-or-hide">
-            {isReadMore ? "...read more" : " show less"}
-          </span>
+          {answer.text.length > 167 && (
+            <span onClick={toggleReadMore} className="read-or-hide">
+              {isReadMore ? "...read more" : " show less"}
+            </span>
+          )}
         </div>
         <a
           className="source"
