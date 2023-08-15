@@ -221,9 +221,14 @@ ul {
   flex-grow: 1;
 }
 
-.answer-form span {
+.text-counter {
   font-weight: 600;
   font-size: 18px;
+}
+
+.text-counter.exceeded {
+  color: red;
+  font-weight: bold;
 }
 
 @media (max-width: 1200px) {

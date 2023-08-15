@@ -150,7 +150,7 @@ function NewAnswerForm({ setAnswers, setShowForm }) {
     console.log(text, source, category);
 
     // 2. Check if the data is valid. If so, create a new answer.
-    if (text && isValidHttpUrl(source) && category && textLength <= 200) {
+    if (text && isValidHttpUrl(source) && category && textLength <= 400) {
       // 3. Create a new answer object
       // const newAnswer = {
       //   id: Math.round(Math.random() * 10000000),
@@ -196,7 +196,9 @@ function NewAnswerForm({ setAnswers, setShowForm }) {
         onChange={(e) => setText(e.target.value)}
         disabled={isUploading}
       />
-      <span>{200 - textLength}</span>
+      <span className={`text-counter ${textLength > 400 ? "exceeded" : ""}`}>
+        {400 - textLength}
+      </span>
       <input
         value={source}
         type="text"
